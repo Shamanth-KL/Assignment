@@ -1,7 +1,6 @@
-package schoolroombooking.manager;
+package schoolroombooking.clerk;
 
 import schoolroombooking.SchoolRoomBooking;
-import schoolroombooking.common.Constant;
 
 import javax.swing.*;
 import javax.swing.GroupLayout.Alignment;
@@ -10,14 +9,11 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-//import schoolroombooking.common.Constant;
-
-public class ManagerLogin extends JFrame {
-    static ManagerLogin frame;
+public class ClerkLogin extends JFrame {
+    static ClerkLogin frame;
     private JPanel contentPane;
     private JTextField textField;
     private JPasswordField passwordField;
-
 
     /**
      * Launch the application.
@@ -26,7 +22,7 @@ public class ManagerLogin extends JFrame {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    frame = new ManagerLogin();
+                    frame = new ClerkLogin();
                     frame.setVisible(true);
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -37,14 +33,14 @@ public class ManagerLogin extends JFrame {
     /**
      * Create the frame.
      */
-    public ManagerLogin() {
+    public ClerkLogin() {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setBounds(100, 100, 450, 300);
+        setBounds(120, 120, 450, 300);
         contentPane = new JPanel();
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
         setContentPane(contentPane);
 
-        JLabel lblAdminLoginForm = new JLabel("Manager Login Form");
+        JLabel lblAdminLoginForm = new JLabel("Clerks Login Form");
         lblAdminLoginForm.setForeground(Color.GRAY);
         lblAdminLoginForm.setFont(new Font("Tahoma", Font.PLAIN, 18));
 
@@ -60,11 +56,12 @@ public class ManagerLogin extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 String name=textField.getText();
                 String password=String.valueOf(passwordField.getPassword());
-                if(name.equals(Constant.USER_NAME)&&password.equals(Constant.PASSWORD)){
-                    ManagerSuccess.main(new String[]{});
+                //System.out.println(name+" "+password);
+                if(ClerkDao.validate(name, password)){
+                    ClerkSuccess.main(new String[]{});
                     frame.dispose();
                 }else{
-                    JOptionPane.showMessageDialog(ManagerLogin.this, "Sorry, Username or Password Error","Login Error!", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(ClerkLogin.this, "Not Found!! Username/Password Error","Login Error!", JOptionPane.ERROR_MESSAGE);
                     textField.setText("");
                     passwordField.setText("");
                 }
@@ -78,6 +75,7 @@ public class ManagerLogin extends JFrame {
                 frame.dispose();
             }
         });
+
         passwordField = new JPasswordField();
         GroupLayout gl_contentPane = new GroupLayout(contentPane);
         gl_contentPane.setHorizontalGroup(
@@ -123,8 +121,9 @@ public class ManagerLogin extends JFrame {
                                 .addContainerGap(80, Short.MAX_VALUE)
                                 .addComponent(btnBack, GroupLayout.PREFERRED_SIZE, 37, GroupLayout.PREFERRED_SIZE)
                                 .addContainerGap(80, Short.MAX_VALUE))
+
+
         );
         contentPane.setLayout(gl_contentPane);
     }
 }
-

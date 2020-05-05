@@ -21,8 +21,8 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class SchoolRoomMgmt extends JFrame {
-    static SchoolRoomMgmt frame;
+public class SchoolRoomBooking extends JFrame {
+    static SchoolRoomBooking frame;
     private JPanel contentPane;
 
     /**
@@ -32,7 +32,7 @@ public class SchoolRoomMgmt extends JFrame {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    frame= new SchoolRoomMgmt();
+                    frame= new SchoolRoomBooking();
                     frame.setVisible(true);
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -45,7 +45,7 @@ public class SchoolRoomMgmt extends JFrame {
     /**
      * Create the frame.
      */
-    public SchoolRoomMgmt() {
+    public SchoolRoomBooking() {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 450, 300);
         contentPane = new JPanel();
