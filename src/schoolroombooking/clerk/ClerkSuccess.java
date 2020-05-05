@@ -56,7 +56,7 @@ public class ClerkSuccess extends JFrame {
         JButton btnViewAllRooms = new JButton("View All Rooms");
         btnViewAllRooms.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
-                ViewRooms.main(new String[]{});
+                ViewRoom.main(new String[]{});
             }
         });
         btnViewAllRooms.setFont(new Font("Tahoma", Font.PLAIN, 13));
@@ -98,7 +98,7 @@ public class ClerkSuccess extends JFrame {
         JButton btnLogout = new JButton("Logout");
         btnLogout.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                SchoolRoomMgmt.main(new String[]{});
+                SchoolRoomBooking.main(new String[]{});
                 frame.dispose();
             }
         });

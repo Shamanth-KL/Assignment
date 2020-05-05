@@ -1,9 +1,9 @@
 package schoolroombooking.manager;
 
+import schoolroombooking.SchoolRoomBooking;
 import schoolroombooking.clerk.ClerkForm;
 import schoolroombooking.clerk.DeleteClerk;
 import schoolroombooking.clerk.ViewClerk;
-import schoolroombooking.SchoolRoomBooking;
 
 import javax.swing.*;
 import javax.swing.GroupLayout.Alignment;
